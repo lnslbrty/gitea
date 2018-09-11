@@ -142,7 +142,7 @@ func (g *GiteaLocalUploader) CreateRelease(release *base.Release) error {
 	if err != nil {
 		return fmt.Errorf("GetCommit: %v", err)
 	}
-	rel.NumCommits, err = commit.CommitsCount()
+	rel.NumCommits, err = commit.CommitsCount(setting.MaxGitCommits)
 	if err != nil {
 		return fmt.Errorf("CommitsCount: %v", err)
 	}

@@ -356,6 +356,7 @@ var (
 	HasRobotsTxt      bool
 	InternalToken     string // internal access token
 	IterateBufferSize int
+	MaxGitCommits     int
 
 	// UILocation is the location on the UI, so that we can display the time on UI.
 	// Currently only show the default time.Local, it could be added to app.ini after UI is ready
@@ -777,6 +778,7 @@ func NewContext() {
 	LogSQL = Cfg.Section("database").Key("LOG_SQL").MustBool(true)
 	DBConnectRetries = Cfg.Section("database").Key("DB_RETRIES").MustInt(10)
 	DBConnectBackoff = Cfg.Section("database").Key("DB_RETRY_BACKOFF").MustDuration(3 * time.Second)
+	MaxGitCommits = Cfg.Section("git").Key("MAX_GIT_COMMITS").MustInt(100)
 
 	sec = Cfg.Section("attachment")
 	AttachmentPath = sec.Key("PATH").MustString(path.Join(AppDataPath, "attachments"))

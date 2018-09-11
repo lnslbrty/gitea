@@ -673,6 +673,9 @@ MAX_GIT_DIFF_FILES = 100
 GC_ARGS =
 ; If use git wire protocol version 2 when git version >= 2.18, default is true, set to false when you always want git wire protocol version 1
 EnableAutoGitWireProtocol = true
+; Max number of commits which are fetched and shown
+; Set this to improve performance on large repositories
+MAX_GIT_COMMITS = 0
 
 ; Operation timeout in seconds
 [git.timeout]
